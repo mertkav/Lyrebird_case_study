@@ -27,11 +27,11 @@ retention_days AS (
     SELECT 
         cohort_month,
         CASE
-            WHEN days_since_start <= 1 THEN 'D1'
-            WHEN days_since_start <= 3 THEN 'D3'
-            WHEN days_since_start <= 7 THEN 'D7'
-            WHEN days_since_start <= 14 THEN 'D14'
-            WHEN days_since_start <= 28 THEN 'D28'
+            WHEN days_since_start = 1 THEN 'D1'
+            WHEN days_since_start = 3 THEN 'D3'
+            WHEN days_since_start = 7 THEN 'D7'
+            WHEN days_since_start = 14 THEN 'D14'
+            WHEN days_since_start = 28 THEN 'D28'
         END AS retention_day,
         COUNT(user_id) AS active_users
     FROM 
